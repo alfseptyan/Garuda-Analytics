@@ -1,0 +1,15 @@
+{
+  "request_delay_seconds": 2,
+  "players": [
+    {
+      "name": "Jay Idzes",
+      "transfermarkt_url": "https://www.transfermarkt.com/jay-idzes/profil/spieler/546926",
+      "news_query": "Jay Idzes Timnas"
+    },
+    {
+      "name": "Marselino Ferdinan",
+      "transfermarkt_url": "https://www.transfermarkt.com/marselino-ferdinan/profil/spieler/875219",
+      "news_query": "Marselino Ferdinan Timnas"
+    }
+  ]
+}
