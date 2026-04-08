@@ -16,3 +16,20 @@
 2026-04-08 08:46:06,868 | INFO | Extracting data for Jay Idzes
 2026-04-08 08:46:10,471 | INFO | Extracting data for Marselino Ferdinan
 2026-04-08 08:46:11,787 | INFO | Wrote 2 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 10:56:28,456 | INFO | Extracting data for Jay Idzes
+2026-04-08 10:56:34,666 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 10:56:38,925 | INFO | Wrote 2 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 10:56:38,925 | INFO | Wrote 0 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 10:56:38,927 | WARNING | Wrote 4 errors to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_error_report.csv
+2026-04-08 10:57:11,336 | INFO | Extracting data for Jay Idzes
+2026-04-08 10:57:15,008 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 10:57:16,486 | INFO | Wrote 2 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 10:57:16,486 | INFO | Wrote 200 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 10:59:31,972 | INFO | Extracting data for Jay Idzes
+2026-04-08 10:59:36,169 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 10:59:37,474 | INFO | Wrote 2 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 10:59:37,474 | INFO | Wrote 200 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 11:01:18,007 | INFO | Extracting data for Jay Idzes
+2026-04-08 11:01:21,081 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 11:01:22,056 | INFO | Wrote 2 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 11:01:22,056 | INFO | Wrote 200 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv

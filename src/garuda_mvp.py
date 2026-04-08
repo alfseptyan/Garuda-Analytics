@@ -16,6 +16,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT_DIR / "config" / "players.json"
 OUTPUT_DIR = ROOT_DIR / "output"
 OUTPUT_PATH = OUTPUT_DIR / "timnas_mvp_data.csv"
+NEWS_ARTICLES_PATH = OUTPUT_DIR / "timnas_mvp_news_articles.csv"
 ERROR_REPORT_PATH = OUTPUT_DIR / "timnas_mvp_error_report.csv"
 LOG_PATH = OUTPUT_DIR / "garuda_mvp.log"
 
@@ -131,10 +132,49 @@ def summarize_articles(articles: List[Dict[str, str]], limit: int = 3) -> str:
     return " | ".join(item for item in items if item)
 
 
+def parse_market_value_eur(market_value: Optional[str]) -> Optional[int]:
+    if not market_value:
+        return None
+
+    match = re.search(
+        r"€\s*([0-9]+(?:[.,][0-9]+)?)\s*([mk])?",
+        market_value,
+        flags=re.IGNORECASE,
+    )
+    if not match:
+        return None
+
+    numeric_value = float(match.group(1).replace(",", "."))
+    suffix = (match.group(2) or "").lower()
+    multiplier = {"m": 1_000_000, "k": 1_000}.get(suffix, 1)
+    return int(numeric_value * multiplier)
+
+
+def build_article_records(
+    player: PlayerConfig,
+    articles: List[Dict[str, str]],
+    extract_date: str,
+    run_id: str,
+) -> List[Dict[str, str]]:
+    records = []
+    for idx, article in enumerate(articles, start=1):
+        records.append({
+            "run_id": run_id,
+            "player_name": player.name,
+            "article_rank": str(idx),
+            "title": article.get("title", ""),
+            "link": article.get("link", ""),
+            "published": article.get("published", ""),
+            "extract_date": extract_date,
+        })
+    return records
+
+
 def build_player_record(
     player: PlayerConfig,
     extract_date: str,
-) -> Tuple[Dict[str, str], List[Dict[str, str]]]:
+    run_id: str,
+) -> Tuple[Dict[str, str], List[Dict[str, str]], List[Dict[str, str]]]:
     errors: List[Dict[str, str]] = []
 
     market_value, market_error = fetch_transfermarkt_market_value(
@@ -160,43 +200,69 @@ def build_player_record(
         })
 
     article_summary = summarize_articles(articles)
+    market_value_eur = parse_market_value_eur(market_value)
 
     record = {
+        "run_id": run_id,
         "player_name": player.name,
         "market_value": market_value or "N/A",
+        "market_value_eur": str(market_value_eur) if market_value_eur is not None else "N/A",
         "news_count": str(len(articles)),
         "news_summary": article_summary or "N/A",
         "extract_date": extract_date,
         "transfermarkt_url": player.transfermarkt_url,
     }
-    return record, errors
+    article_records = build_article_records(player, articles, extract_date, run_id)
+    return record, errors, article_records
 
 
 def ensure_output_dir(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
+def append_csv_records(
+    records: List[Dict[str, str]],
+    path: Path,
+    fieldnames: List[str],
+) -> None:
+    ensure_output_dir(path.parent)
+    write_header = not path.exists() or path.stat().st_size == 0
+
+    with path.open("a", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        if write_header:
+            writer.writeheader()
+        writer.writerows(records)
+
+
 def write_csv(records: List[Dict[str, str]], path: Path) -> None:
     fieldnames = [
+        "run_id",
         "player_name",
         "market_value",
+        "market_value_eur",
         "news_count",
         "news_summary",
         "extract_date",
         "transfermarkt_url",
     ]
-    ensure_output_dir(path.parent)
+    append_csv_records(records, path, fieldnames)
 
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(records)
+
+def write_news_articles(records: List[Dict[str, str]], path: Path) -> None:
+    fieldnames = [
+        "run_id",
+        "player_name",
+        "article_rank",
+        "title",
+        "link",
+        "published",
+        "extract_date",
+    ]
+    append_csv_records(records, path, fieldnames)
 
 
 def write_error_report(errors: List[Dict[str, str]], path: Path) -> None:
-    if not errors:
-        return
-
     fieldnames = [
         "player_name",
         "stage",
@@ -209,7 +275,8 @@ def write_error_report(errors: List[Dict[str, str]], path: Path) -> None:
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(errors)
+        if errors:
+            writer.writerows(errors)
 
 
 def setup_logging(log_path: Path) -> None:
@@ -231,19 +298,28 @@ def main() -> None:
         raise SystemExit("No players configured in config/players.json")
 
     records: List[Dict[str, str]] = []
+    article_records: List[Dict[str, str]] = []
     errors: List[Dict[str, str]] = []
+    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     for idx, player in enumerate(players, start=1):
         logging.info("Extracting data for %s", player.name)
         extract_date = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-        record, player_errors = build_player_record(player, extract_date)
+        record, player_errors, player_articles = build_player_record(
+            player,
+            extract_date,
+            run_id,
+        )
         records.append(record)
         errors.extend(player_errors)
+        article_records.extend(player_articles)
         if idx < len(players):
             time.sleep(max(delay_seconds, 0))
 
     write_csv(records, OUTPUT_PATH)
+    write_news_articles(article_records, NEWS_ARTICLES_PATH)
     write_error_report(errors, ERROR_REPORT_PATH)
     logging.info("Wrote %s rows to %s", len(records), OUTPUT_PATH)
+    logging.info("Wrote %s article rows to %s", len(article_records), NEWS_ARTICLES_PATH)
     if errors:
         logging.warning("Wrote %s errors to %s", len(errors), ERROR_REPORT_PATH)
 
