@@ -32,4 +32,68 @@
 2026-04-08 11:01:18,007 | INFO | Extracting data for Jay Idzes
 2026-04-08 11:01:21,081 | INFO | Extracting data for Marselino Ferdinan
 2026-04-08 11:01:22,056 | INFO | Wrote 2 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
-2026-04-08 11:01:22,056 | INFO | Wrote 200 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 11:01:22,056 | INFO | Wrote 200 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv2026-04-08 13:29:31,964 | INFO | Extracting data for Jay Idzes
+2026-04-08 13:29:36,254 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 13:29:38,445 | INFO | Wrote 2 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 13:29:38,446 | INFO | Wrote 200 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 13:51:27,953 | INFO | Extracting data for Jay Idzes
+2026-04-08 13:51:31,729 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 13:51:35,828 | INFO | Extracting data for Rafael Struick
+2026-04-08 13:51:39,467 | INFO | Extracting data for Ivar Jenner
+2026-04-08 13:51:43,275 | INFO | Extracting data for Pratama Arhan
+2026-04-08 13:51:47,399 | INFO | Extracting data for Sandy Walsh
+2026-04-08 13:51:51,284 | INFO | Extracting data for Jordi Amat
+2026-04-08 13:51:54,908 | INFO | Extracting data for Thom Haye
+2026-04-08 13:51:59,950 | INFO | Extracting data for Nathan Tjoe-A-On
+2026-04-08 13:52:03,618 | INFO | Extracting data for Elkan Baggott
+2026-04-08 13:52:05,143 | INFO | Skipped 194 duplicate article rows
+2026-04-08 13:52:05,158 | INFO | Wrote 10 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 13:52:05,158 | INFO | Wrote 1000 article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 13:52:05,158 | INFO | Wrote 1032 data quality rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data_quality_report.csv
+2026-04-08 13:52:28,285 | INFO | Extracting data for Jay Idzes
+2026-04-08 13:52:30,884 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 13:52:33,540 | INFO | Extracting data for Rafael Struick
+2026-04-08 13:52:36,000 | INFO | Extracting data for Ivar Jenner
+2026-04-08 13:52:38,535 | INFO | Extracting data for Pratama Arhan
+2026-04-08 13:52:41,163 | INFO | Extracting data for Sandy Walsh
+2026-04-08 13:52:44,299 | INFO | Extracting data for Jordi Amat
+2026-04-08 13:52:46,859 | INFO | Extracting data for Thom Haye
+2026-04-08 13:52:49,363 | INFO | Extracting data for Nathan Tjoe-A-On
+2026-04-08 13:52:51,804 | INFO | Extracting data for Elkan Baggott
+2026-04-08 13:52:52,503 | INFO | Skipped 1000 duplicate article rows
+2026-04-08 13:52:52,517 | INFO | Wrote 10 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 13:52:52,518 | INFO | Wrote 0 new article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 13:52:52,518 | INFO | Wrote 1032 data quality rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data_quality_report.csv
+2026-04-08 13:53:53,387 | INFO | Extracting data for Jay Idzes
+2026-04-08 13:53:56,678 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 13:53:59,614 | INFO | Extracting data for Rafael Struick
+2026-04-08 13:54:03,027 | INFO | Extracting data for Ivar Jenner
+2026-04-08 13:54:06,177 | INFO | Extracting data for Pratama Arhan
+2026-04-08 13:54:09,292 | INFO | Extracting data for Sandy Walsh
+2026-04-08 13:54:12,466 | INFO | Extracting data for Jordi Amat
+2026-04-08 13:54:15,668 | INFO | Extracting data for Thom Haye
+2026-04-08 13:54:18,800 | INFO | Extracting data for Nathan Tjoe-A-On
+2026-04-08 13:54:21,904 | INFO | Extracting data for Elkan Baggott
+2026-04-08 13:54:22,975 | INFO | Removed 571 duplicate article rows from history
+2026-04-08 13:54:22,975 | INFO | Skipped 977 duplicate article rows
+2026-04-08 13:54:22,988 | INFO | Wrote 10 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data.csv
+2026-04-08 13:54:22,988 | INFO | Wrote 23 new article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_news_articles.csv
+2026-04-08 13:54:22,988 | INFO | Wrote 1032 data quality rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\timnas_mvp_data_quality_report.csv
+2026-04-08 14:37:55,219 | INFO | Extracting data for Jay Idzes
+2026-04-08 14:37:59,458 | INFO | Extracting data for Marselino Ferdinan
+2026-04-08 14:38:05,846 | INFO | Extracting data for Rafael Struick
+2026-04-08 14:38:18,621 | INFO | Extracting data for Ivar Jenner
+2026-04-08 14:38:26,132 | INFO | Extracting data for Pratama Arhan
+2026-04-08 14:38:32,582 | INFO | Extracting data for Sandy Walsh
+2026-04-08 14:38:38,958 | INFO | Extracting data for Jordi Amat
+2026-04-08 14:38:43,617 | INFO | Extracting data for Thom Haye
+2026-04-08 14:38:48,651 | INFO | Extracting data for Nathan Tjoe-A-On
+2026-04-08 14:38:54,034 | INFO | Extracting data for Elkan Baggott
+2026-04-08 14:38:57,624 | INFO | Skipped 22 duplicate article rows
+2026-04-08 14:38:57,661 | INFO | Wrote 10 raw market rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\raw\transfermarkt_market_values.csv
+2026-04-08 14:38:57,662 | INFO | Wrote 1000 raw news rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\raw\google_news_articles.csv
+2026-04-08 14:38:57,663 | INFO | Wrote 10 staging market rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\staging\player_market_values.csv
+2026-04-08 14:38:57,664 | INFO | Wrote 1000 staging news rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\staging\news_articles.csv
+2026-04-08 14:38:57,664 | INFO | Wrote 10 rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\curated\player_daily_snapshot.csv
+2026-04-08 14:38:57,665 | INFO | Wrote 978 new article rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\curated\player_news_articles.csv
+2026-04-08 14:38:57,666 | INFO | Wrote 1029 data quality rows to C:\Kerjaan Septyan\Data Engineer\Garuda\output\curated\data_quality_report.csv
